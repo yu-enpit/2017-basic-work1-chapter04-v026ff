@@ -19,8 +19,7 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-
-        int myHand = 0;
+        int myHand;
         Intent intent = getIntent();
         int id = intent.getIntExtra("My_HAND", 0);
         ImageView myHandImageView = (ImageView) findViewById(R.id.my_hand_image);
@@ -73,9 +72,7 @@ public class ResultActivity extends AppCompatActivity {
                 break;
 
         }
-
         saveData(myHand, comHand, gameResult);
-
     }
 
 
@@ -106,7 +103,7 @@ public class ResultActivity extends AppCompatActivity {
         editor.putInt("BEFORE_LAST_COM_HAND",lastComHand);
         editor.putInt("GAME_RESULT",gameResult);
 
-        editor.commit();
+        editor.apply();
     }
 
     private int getHand() {
